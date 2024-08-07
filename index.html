@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Her</title>
+    <style>
+      .full-background {
+        background-image: url("space.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 103vh;
+        width: 102vw;
+        position: relative;
+      }
+
+      .moon {
+        width: 450px;
+        height: 450px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        overflow: hidden;
+        border-radius: 50%;
+        /*box-shadow: 0 0 0px #000 inset, 0 0 0px 2px;*/
+        background: url("moon.jpg") no-repeat center center;
+        background-size: cover;
+        animation: blink 4s infinite, spin 30s linear infinite; /* Combine both animations */
+      }
+
+      .moon::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 50%;
+        box-shadow: -40px -40px 50px 2px #000 inset;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3; /* Adjust or use 0 for complete disappearance */
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -0%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-0%, -50%) rotate(180deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="full-background"></div>
+    <div class="moon"></div>
+  </body>
+</html>
